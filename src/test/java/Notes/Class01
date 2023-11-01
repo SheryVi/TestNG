@@ -1,0 +1,122 @@
+TEST NG
+
+*********Class 01**********
+
+TestNG :
+Is a testing tool that helps us to structure our test cases using different annotations
+
+Benefits of TestNG:
+1. Reports
+2. Annotations e.g @Test, @before, @beforeclass
+3. Parallel testing  //a couple of time
+4. Batch execution
+5. Assertions —> Hard Assertions, Soft Assertions
+6. Data Parameterization
+
+It cam be integrated with cucumber, maven and selenium
+
+
+1. Annotations:
+we don’t need any main method
+
+Annotation is a tag that provides additional information about a class, interface or method in TestNG.
+Аннотация - это тэг, предоставляющий информацию о классе, интерфейсе или методе в TestNG.
+
+@Test - это означает, что все, что мы собираемся записать в этой аннотации будет нашим фактическим случаем
+@BeforeMethod - все, что будет написано под этой аннотацией будет выполнено перед тестовым случаем или перед определенным методом, который будет запущен.
+@After method
+@BeforeClass
+@AfterClass
+
+Это некоторые из аннотаций, которые у нас есть в TestNG, которые используются.
+
+
+
+1. @Test
+You should write your test cases under this annotation.
+Каждое утверждение которое  делается (assertion) должно быть внутри аннотации на уровне теста.
+This is main annotation in TestNG.
+By default TestNG executes the methods in alphabetical order.
+
+2. @BeforeMethod (предусловие)
+Нам всегда приходится делать какие-то дополнительные шаги, например чтобы проверить функциональность
+входа в систему прежде всего нам нужно открыть браузер и нужно перейти на конкретный сайт.
+
+runs every time before the @test is executed
+also called precondition
+
+3.@AfterMethod:
+runs after each @test Method
+also called postcondition (постуловие)
+
+before method is precondition that must run before every test case and the post condition will run after
+the test case has ended
+
+метод before - это предварительное условие, которое должно выполняться перед каждым тестовым набором, а постусловие будет выполняться после
+завершения тестового набора
+
+priority:
+by default the priority is zero of all the test case
+in order to give them a priority order
+по умолчанию приоритет всех тестовых наборов равен нулю
+, чтобы присвоить им приоритетный порядок используйте
+use @Test(priority = 1)
+
+Enabled:
+@Test (enabled=false)—> will not run the test cases that are set false
+by default all test cases are set enabled=true
+не будут запускаться тестовые случаи, для которых установлено значение false
+по умолчанию все тестовые случаи установлены включенными=true
+
+DependsOn:
+@Test(dependsOnMethods = “methodName”)
+will only run if the dependent method has passed successfully else it will be skipped
+будет выполняться только в том случае, если зависимый метод прошел успешно, в противном случае он будет пропущен
+
+HardAssertion:
+we have hardAssertions in TestNG
+in order to use the assertion we use
+
+Assert.assertionType()
+
+1. Assert.Assertequals(String1, String2);
+it passes if String1 equals String2
+if fails if String1 does not equals to String2
+
+Строки, которые переданы в параметры будут сравнены. Если они равны друг другу
+тест пройдет, если НЕ будут равны потерпит неудачу
+
+2. Assert.Asserttrue(boolean variable);
+check the state of boolean variable
+it passes if the boolean is TRUE
+it fails if the boolean is FALSE
+
+In Hard assertions if we have multiple assertions
+as soon as one of them fails it quits checking other assertions and declared the test case has failed.
+В жестких утверждениях, если у нас есть несколько утверждений, как только одно из них терпит неудачу,
+оно прекращает проверку других утверждений и объявляет, что тестовый пример не удался.
+
+SoftAssertions:
+soft assertion continue to check all the assertions regardless of one or more assertions
+have failed, witch is not the scenario in case of Hard Assertions (they stop executed when even one assertions fails).
+
+мягкое утверждение продолжает проверять все утверждения независимо от того,
+одно или несколько утверждений завершились неудачей,
+что не является сценарием в случае жестких утверждений
+(они прекращают выполняться, когда хотя бы одно утверждение завершается неудачей).
+
+in oder to use soft assertions
+1. declaration
+
+SoftAssert soft = new SoftAssert();
+
+2. soft.AssertEquals(String, String) instead of Assert.AssertEquals(String, String)
+
+at the end you must do
+
+3. soft.AssertAll().
+
+After the declaration when u use soft.assert it just checks the assertion but does not take any action or display any output.
+Once tall the assertions are done
+then u use soft.Assertall()
+to compile the result of all the assertion and show you the results on screen.
