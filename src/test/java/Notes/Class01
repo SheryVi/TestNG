@@ -116,7 +116,14 @@ at the end you must do
 
 3. soft.AssertAll().
 
-After the declaration when u use soft.assert it just checks the assertion but does not take any action or display any output.
+After the declaration when u use soft.assert it just checks the assertion
+but does not take any action or display any output.
 Once tall the assertions are done
 then u use soft.Assertall()
-to compile the result of all the assertion and show you the results on screen.
+to compile the result of all the assertion and
+show you the results on screen.
+
+После объявления, когда вы используете soft.assert, он просто проверяет утверждение,
+но не предпринимает никаких действий и не отображает никаких выходных данных.
+Как только все утверждения будут выполнены, используйте soft.AssertAll()
+чтобы скомпилировать результат всех утверждений и показать вам результаты на экране.

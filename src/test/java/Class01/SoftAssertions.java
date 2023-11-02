@@ -34,12 +34,14 @@ public class SoftAssertions {
         driver.findElement(By.id("txtPassword")).sendKeys("123456");
         driver.findElement(By.id("btnLogin")).click();
         String text = driver.findElement(By.id("spanMessage")).getText();
+
         soft.assertEquals(text, expectedText);
 
         WebElement user = driver.findElement(By.id("txtUsername"));
         boolean displayed = user.isDisplayed();
         soft.assertTrue(displayed);
         soft.assertAll();
+        System.out.println("okey");
 
     }
 
